@@ -6,6 +6,7 @@ import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.MotionEvent;
 import android.widget.TextView;
 
 import cn.alien95.phonebook.R;
@@ -33,6 +34,11 @@ public class MainActivity extends Activity {
 
     }
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        return super.onTouchEvent(event);
+    }
+
     class PagerAdapter extends FragmentStatePagerAdapter implements ViewPager.OnPageChangeListener{
 
         public PagerAdapter(FragmentManager fm) {
@@ -46,7 +52,6 @@ public class MainActivity extends Activity {
                     return new BookFragment();
                 case 1:
                     return new BookFragment();
-
                 default:
                     return new BookFragment();
             }

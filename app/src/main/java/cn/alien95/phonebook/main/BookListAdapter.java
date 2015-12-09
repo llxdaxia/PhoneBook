@@ -24,11 +24,24 @@ public class BookListAdapter extends ArrayAdapter<Book>{
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        TextView textView = new TextView(getContext());
-        textView.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        textView.setTextSize(16);
-        textView.setPadding(Util.dip2px(16),Util.dip2px(16),Util.dip2px(16),Util.dip2px(16));
-        textView.setText(getItem(position).getId()+"  " +getItem(position).getName());
-        return textView;
+        ViewHolder viewHolder;
+        if(convertView == null){
+            viewHolder = new ViewHolder();
+            viewHolder.textView = new TextView(getContext());
+            viewHolder.textView.setLayoutParams(new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            viewHolder.textView.setTextSize(16);
+            viewHolder.textView.setPadding(Util.dip2px(16),Util.dip2px(16),Util.dip2px(16),Util.dip2px(16));
+            convertView = viewHolder.textView;
+            convertView.setTag(viewHolder);
+        }else{
+            viewHolder = (ViewHolder) convertView.getTag();
+        }
+        viewHolder.textView.setText(getItem(position).getId()+"  " +getItem(position).getName());
+        return viewHolder.textView;
     }
+
+    class ViewHolder{
+        TextView textView;
+    }
+
 }

@@ -33,6 +33,7 @@ public class BookModel {
                 contentResolver = mContext.getContentResolver();
                 //取得联系人中开始的游标
                 Cursor cursor = contentResolver.query(Uri.parse(ADDRESS_URI),null,null,null,null);
+                final int count = cursor.getCount();
                 while (cursor.moveToNext()){
                     //获取联系人id,姓名
                     Book book = new Book();
@@ -54,7 +55,7 @@ public class BookModel {
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        callback.callback(data);
+                        callback.callback(data,count);
                     }
                 });
             }
