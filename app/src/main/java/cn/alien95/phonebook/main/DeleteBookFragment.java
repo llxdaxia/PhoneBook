@@ -21,6 +21,7 @@ public class DeleteBookFragment extends Fragment {
     private BookModel bookModel;
     private Button delete;
     private Button custom;
+    private Button testFragment;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +49,13 @@ public class DeleteBookFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 getActivity().startActivity(new Intent(getActivity(), CustomActivity.class));
+            }
+        });
+        testFragment = (Button) view.findViewById(R.id.test_fragment);
+        testFragment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().startActivity(new Intent(getActivity(),SingleFragmentActivity.class));
             }
         });
         return view;

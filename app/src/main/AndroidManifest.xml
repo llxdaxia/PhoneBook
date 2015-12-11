@@ -19,7 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".widget.CustomActivity"></activity>
+        <activity android:name=".widget.CustomActivity" />
+        <activity android:name=".main.SingleFragmentActivity"></activity>
     </application>
 
 </manifest>
