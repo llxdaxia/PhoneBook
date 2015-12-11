@@ -1,7 +1,9 @@
 package cn.alien95.phonebook.widget;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+
+import cn.alien95.phonebook.R;
 
 public class CustomActivity extends AppCompatActivity {
 

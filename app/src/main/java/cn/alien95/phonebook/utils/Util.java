@@ -1,7 +1,10 @@
 package cn.alien95.phonebook.utils;
 
 import android.content.Context;
+import android.graphics.Point;
 import android.util.Log;
+import android.view.Display;
+import android.view.WindowManager;
 
 import cn.alien95.phonebook.BuildConfig;
 
@@ -10,6 +13,7 @@ import cn.alien95.phonebook.BuildConfig;
  */
 public class Util {
 
+    private static final String TAG = "FUCK";
     private static String DEBUG_LOG_TAG;
     private static Context mContext;
 
@@ -27,7 +31,6 @@ public class Util {
         }
     }
 
-
     /**
      * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
      */
@@ -42,5 +45,22 @@ public class Util {
     public static int px2dip(float pxValue) {
         final float scale = mContext.getResources().getDisplayMetrics().density;
         return (int) (pxValue / scale + 0.5f);
+    }
+
+
+    public static int getScreenWidth(){
+        WindowManager wm = (WindowManager)mContext.getSystemService(Context.WINDOW_SERVICE);
+        Display display = wm.getDefaultDisplay();
+        Point point = new Point();
+        display.getSize(point);
+        return point.x;
+    }
+
+    public static int getScreenHeight(){
+        WindowManager wm = (WindowManager)mContext.getSystemService(Context.WINDOW_SERVICE);
+        Display display = wm.getDefaultDisplay();
+        Point point = new Point();
+        display.getSize(point);
+        return point.y;
     }
 }

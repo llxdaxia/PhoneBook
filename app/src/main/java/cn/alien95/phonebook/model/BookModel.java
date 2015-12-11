@@ -61,4 +61,20 @@ public class BookModel {
             }
         }).start();
     }
+
+    //删除联系人
+    public void deleteBook(String name){
+        Uri uri = Uri.parse("content://com.android.contacts/raw_contacts");
+        Cursor cursor = contentResolver.query(uri,new String[]{ContactsContract.Data._ID},
+                "display_name = ?",new String[]{name},null);
+
+        if(cursor.moveToFirst()){
+            int id = cursor.getInt(0);
+            //根据id和name删除数据
+            contentResolver.delete(uri,"display_name = ?",new String[]{name});
+            uri = Uri.parse("content://com.android.contacts/data");
+            contentResolver.delete(uri, "raw_contact_id=?", new String[]{id+""});
+
+        }
+    }
 }

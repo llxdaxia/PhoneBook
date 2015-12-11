@@ -1,13 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="cn.alien95.phonebook.widget.CustomActivity">
+    tools:context="cn.hotwoo.play.main.CustomActivity">
 
-</RelativeLayout>
+    <cn.alien95.phonebook.widget.PlayView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="11111111"
+            android:textSize="20sp" />
+
+        <Button
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:text="2222222222222222222"
+            android:textSize="20sp" />
+
+        <Button
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="3333"
+            android:textSize="20sp" />
+
+        <Button
+            android:layout_width="90dp"
+            android:layout_height="wrap_content"
+            android:text="44444444444444"
+            android:textSize="20sp" />
+
+        <Button
+            android:layout_width="88dp"
+            android:layout_height="wrap_content"
+            android:text="5555"
+            android:textSize="20sp" />
+        <Button
+            android:layout_width="96dp"
+            android:layout_height="wrap_content"
+            android:text="666666666666666"
+            android:textSize="20sp" />
+
+        <Button
+            android:layout_width="88dp"
+            android:layout_height="wrap_content"
+            android:text="7777"
+            android:textSize="20sp" />
+
+    </cn.alien95.phonebook.widget.PlayView>
+
+</LinearLayout>
+
