@@ -20,7 +20,6 @@ public class SingleFragmentActivity extends AppCompatActivity {
         FragmentTransaction fragmentTransaction = manager.beginTransaction();
         fragmentTransaction.add(R.id.fragment,new BookFragment());
         fragmentTransaction.commit();
-
-
+        
     }
 }
