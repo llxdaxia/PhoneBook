@@ -4,11 +4,13 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 
 import java.util.List;
 
 import cn.alien95.phonebook.R;
 import cn.alien95.phonebook.model.Book;
+import cn.alien95.phonebook.utils.Util;
 
 /**
  * Created by llxal on 2015/12/9.
@@ -23,6 +25,9 @@ public class BookListAdapter extends ArrayAdapter<Book>{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder = ViewHolder.getViewHolder(getContext(),convertView, R.layout.item_book);
+        TextView content = viewHolder.getItemView(R.id.name);
+        content.setText(getItem(position).getId() + " " +getItem(position).getName());
+        Util.log("position:" + position);
         return viewHolder.getItem();
     }
 

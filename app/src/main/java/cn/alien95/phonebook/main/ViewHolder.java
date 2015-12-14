@@ -24,14 +24,16 @@ public class ViewHolder {
 
     public static ViewHolder getViewHolder(Context context,View convertView,int layoutId){
         mContext = context;
+        ViewHolder viewHolder;
         if(convertView == null){
-            ViewHolder viewHolder = new ViewHolder();
-            item = inflater.inflate(layoutId,null);
-            item.setTag(viewHolder);
-            return viewHolder;
+            viewHolder = new ViewHolder();
+            convertView = inflater.inflate(layoutId,null);
+            convertView.setTag(viewHolder);
         }else {
-            return (ViewHolder) convertView.getTag();
+            viewHolder = (ViewHolder) convertView.getTag();
         }
+        setItem(convertView);
+        return viewHolder;
     }
 
     public<T extends View> T getItemView(int id){
@@ -45,5 +47,9 @@ public class ViewHolder {
 
     public View getItem(){
         return item;
+    }
+
+    public static void setItem(View view){
+        item = view;
     }
 }
