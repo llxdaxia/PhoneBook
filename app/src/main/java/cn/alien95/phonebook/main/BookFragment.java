@@ -38,7 +38,7 @@ public class BookFragment extends Fragment implements View.OnTouchListener,Adapt
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         data = new ArrayList<>();
-        adapter = new BookListAdapter(getActivity(),1,data);
+        adapter = new BookListAdapter(getActivity(),R.layout.item_book,data);
         bookModel = new BookModel(getActivity());
         bookModel.getAddressList(new Callback<List<Book>>() {
             @Override

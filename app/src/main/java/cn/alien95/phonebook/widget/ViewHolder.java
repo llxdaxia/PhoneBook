@@ -1,4 +1,4 @@
-package cn.alien95.phonebook.main;
+package cn.alien95.phonebook.widget;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -45,7 +45,7 @@ public class ViewHolder {
         return view;
     }
 
-    public View getItem(){
+    public View getConvertView(){
         return item;
     }
 

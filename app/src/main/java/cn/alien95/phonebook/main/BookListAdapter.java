@@ -1,34 +1,29 @@
 package cn.alien95.phonebook.main;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.List;
 
 import cn.alien95.phonebook.R;
 import cn.alien95.phonebook.model.Book;
-import cn.alien95.phonebook.utils.Util;
+import cn.alien95.phonebook.widget.ListAdapter;
+import cn.alien95.phonebook.widget.ViewHolder;
 
 /**
  * Created by llxal on 2015/12/9.
  */
-public class BookListAdapter extends ArrayAdapter<Book>{
+public class BookListAdapter extends ListAdapter<Book> {
 
+    private TextView content;
 
-    public BookListAdapter(Context context, int resource, List<Book> objects) {
-        super(context, resource, objects);
+    public BookListAdapter(Context context, int layoutId,List<Book> data) {
+        super(context, layoutId,data);
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder viewHolder = ViewHolder.getViewHolder(getContext(),convertView, R.layout.item_book);
-        TextView content = viewHolder.getItemView(R.id.name);
-        content.setText(getItem(position).getId() + " " +getItem(position).getName());
-        Util.log("position:" + position);
-        return viewHolder.getItem();
+    public void makeViewData(ViewHolder viewHolder, int position) {
+        content = viewHolder.getItemView(R.id.name);
+        content.setText(getItem(position).getId() + " " + getItem(position).getName());
     }
-
 }
