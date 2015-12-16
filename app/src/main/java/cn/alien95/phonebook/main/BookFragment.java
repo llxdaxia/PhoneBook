@@ -19,7 +19,6 @@ import cn.alien95.phonebook.R;
 import cn.alien95.phonebook.model.Book;
 import cn.alien95.phonebook.model.BookModel;
 import cn.alien95.phonebook.model.Callback;
-import cn.alien95.phonebook.utils.Util;
 
 /**
  * Created by llxal on 2015/12/9.
@@ -45,7 +44,6 @@ public class BookFragment extends Fragment implements View.OnTouchListener,Adapt
             public void callback(List<Book> data , int count) {
                 BookFragment.this.data = data;
                 adapter.addAll(data);
-                Util.log("count:"+count);
                 phoneNum.setText(count + "位联系人");
             }
         });

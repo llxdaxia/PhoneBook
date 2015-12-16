@@ -84,7 +84,6 @@ public class MainActivity extends Activity {
             int width = Util.getScreenWidth()/2;
             silder.setLayoutParams(new LinearLayout.LayoutParams(width, Util.dip2px(2)));
             silder.setLeft(position * width);
-            Util.log("position:" + position);
             switch (position) {
                 case 0:
                     //设置的参数是int型，而R.color.orange是#123456这样的，所以需要转换，在R类中没有对应的id对应了一个int型常量

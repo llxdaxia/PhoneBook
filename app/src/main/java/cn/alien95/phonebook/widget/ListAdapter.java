@@ -3,12 +3,13 @@ package cn.alien95.phonebook.widget;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import cn.alien95.phonebook.utils.Util;
 
 /**
  * Created by llxal on 2015/12/15.
@@ -16,7 +17,6 @@ import java.util.List;
 public abstract class ListAdapter<T> extends BaseAdapter {
 
     private List<T> data = new ArrayList<>();
-    private ArrayAdapter<String> stringArrayAdapter;
     private Context mContext;
     private int layoutId;
 
@@ -45,12 +45,12 @@ public abstract class ListAdapter<T> extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder = ViewHolder.getViewHolder(mContext,convertView,layoutId);
         makeViewData(viewHolder,position);
+        Util.log("ConvertView:" + (viewHolder.getConvertView()==null));
         return viewHolder.getConvertView();
     }
 
     public void add(T itemData){
         data.add(itemData);
-        stringArrayAdapter.addAll();
         notifyDataSetChanged();  //这里是去通知数据源改变，即观察getCount,getItem方法的改变
     }
 
@@ -61,7 +61,7 @@ public abstract class ListAdapter<T> extends BaseAdapter {
 
     public void addAll(List<T> list){
         data.addAll(list);
-        notifyDataSetChanged();
+//        notifyDataSetChanged();
     }
 
     public void addAll(T[] array){

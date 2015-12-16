@@ -1,55 +1,47 @@
 package cn.alien95.phonebook.widget;
 
 import android.content.Context;
+import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import java.util.HashMap;
-import java.util.Map;
+import cn.alien95.phonebook.utils.Util;
 
 /**
  * Created by llxal on 2015/12/12.
  */
 public class ViewHolder {
 
-    private static Context mContext;
-    private static LayoutInflater inflater;
-    private Map<Integer,View> recycle;
-    private static View item;
+    private SparseArray<View> recycle = new SparseArray<>();;
+    private static View convertView;
 
-    public ViewHolder(){
-        inflater = LayoutInflater.from(mContext);
-        recycle = new HashMap<>();
+    public ViewHolder(Context context,int layoutID){
+        convertView = LayoutInflater.from(context).inflate(layoutID,null);
+        convertView.setTag(this);
     }
 
     public static ViewHolder getViewHolder(Context context,View convertView,int layoutId){
-        mContext = context;
         ViewHolder viewHolder;
         if(convertView == null){
-            viewHolder = new ViewHolder();
-            convertView = inflater.inflate(layoutId,null);
-            convertView.setTag(viewHolder);
+            viewHolder = new ViewHolder(context,layoutId);
         }else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        setItem(convertView);
         return viewHolder;
     }
 
     public<T extends View> T getItemView(int id){
         T view = (T) recycle.get(id);
         if(view == null){
-            view = (T) item.findViewById(id);
+            view = (T) convertView.findViewById(id);
             recycle.put(id,view);
         }
         return view;
     }
 
     public View getConvertView(){
-        return item;
-    }
-
-    public static void setItem(View view){
-        item = view;
+        if(convertView == null)
+        Util.log("convertView == null");
+        return convertView;
     }
 }
