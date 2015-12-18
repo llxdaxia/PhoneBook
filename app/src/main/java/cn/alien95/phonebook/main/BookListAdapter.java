@@ -7,7 +7,6 @@ import java.util.List;
 
 import cn.alien95.phonebook.R;
 import cn.alien95.phonebook.model.Book;
-import cn.alien95.phonebook.utils.Util;
 import cn.alien95.phonebook.widget.ListAdapter;
 import cn.alien95.phonebook.widget.ViewHolder;
 
@@ -26,7 +25,5 @@ public class BookListAdapter extends ListAdapter<Book> {
     public void makeViewData(ViewHolder viewHolder, int position) {
         content = viewHolder.getItemView(R.id.name);
         content.setText(getItem(position).getId() + " " + getItem(position).getName());
-        Util.log("content:" + content.getText());
-        Util.log("width:" + content.getWidth() + "   " +content.getHeight());
     }
 }

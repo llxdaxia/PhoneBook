@@ -5,19 +5,18 @@ import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import cn.alien95.phonebook.utils.Util;
-
 /**
  * Created by llxal on 2015/12/12.
  */
 public class ViewHolder {
 
-    private SparseArray<View> recycle = new SparseArray<>();;
-    private static View convertView;
+    private SparseArray<View>  recycle;
+    private static View mConvertView;
 
     public ViewHolder(Context context,int layoutID){
-        convertView = LayoutInflater.from(context).inflate(layoutID,null);
-        convertView.setTag(this);
+        recycle = new SparseArray<>();
+        mConvertView = LayoutInflater.from(context).inflate(layoutID,null);
+        mConvertView.setTag(this);
     }
 
     public static ViewHolder getViewHolder(Context context,View convertView,int layoutId){
@@ -25,6 +24,7 @@ public class ViewHolder {
         if(convertView == null){
             viewHolder = new ViewHolder(context,layoutId);
         }else {
+            mConvertView = convertView;  //我日了狗了，着他妈少了这句话就不行了
             viewHolder = (ViewHolder) convertView.getTag();
         }
         return viewHolder;
@@ -33,15 +33,13 @@ public class ViewHolder {
     public<T extends View> T getItemView(int id){
         T view = (T) recycle.get(id);
         if(view == null){
-            view = (T) convertView.findViewById(id);
+            view = (T) mConvertView.findViewById(id);
             recycle.put(id,view);
         }
         return view;
     }
 
     public View getConvertView(){
-        if(convertView == null)
-        Util.log("convertView == null");
-        return convertView;
+        return mConvertView;
     }
 }

@@ -8,7 +8,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -64,17 +63,17 @@ public class BookFragment extends Fragment implements View.OnTouchListener,Adapt
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-        float y;
-        if(IS_FIRST_POSTION){
-            y = event.getY();
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-            if(y < phoneNum.getHeight()){
-                layoutParams.setMargins(0, (int)y,0,0);
-            }else
-                layoutParams.setMargins(0, phoneNum.getHeight(),0,0);
-            mainView.setLayoutParams(layoutParams);
-            return true;
-        }else
+//        float y;
+//        if(IS_FIRST_POSTION){
+//            y = event.getY();
+//            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+//            if(y < phoneNum.getHeight()){
+//                layoutParams.setMargins(0, (int)y,0,0);
+//            }else
+//                layoutParams.setMargins(0, phoneNum.getHeight(),0,0);
+//            mainView.setLayoutParams(layoutParams);
+//            return true;
+//        }else
         return false;
     }
 

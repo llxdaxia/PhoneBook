@@ -45,7 +45,7 @@ public abstract class ListAdapter<T> extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder = ViewHolder.getViewHolder(mContext,convertView,layoutId);
         makeViewData(viewHolder,position);
-        Util.log("ConvertView:" + (viewHolder.getConvertView()==null));
+        Util.log(position + "");
         return viewHolder.getConvertView();
     }
 
@@ -61,7 +61,7 @@ public abstract class ListAdapter<T> extends BaseAdapter {
 
     public void addAll(List<T> list){
         data.addAll(list);
-//        notifyDataSetChanged();
+        notifyDataSetChanged();
     }
 
     public void addAll(T[] array){

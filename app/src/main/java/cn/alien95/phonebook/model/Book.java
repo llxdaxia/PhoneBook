@@ -11,6 +11,12 @@ public class Book {
     private String name;
     private List<String> phone;
 
+    public Book(){}
+    public Book(int id,String name){
+        this.id = id;
+        this.name = name;
+    }
+
     public int getId() {
         return id;
     }
