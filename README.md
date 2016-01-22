@@ -1,4 +1,3 @@
-<<<<<<< HEAD
-lzayman
-参加比赛了，好开心
-看来是冲突了
+###ContentProvider学习
+通过ContentProvider来获取通讯录信息，
+了解其过程。
